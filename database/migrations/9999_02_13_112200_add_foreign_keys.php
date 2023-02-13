@@ -35,12 +35,12 @@ return new class extends Migration
     {
         Schema::table('posts', function(BluePrint $table){
             $table->dropForeign('posts_person_id_foreign');
-            $table->dropColum('person_id');
+            $table->dropColumn('person_id');
         });
 
         Schema::table('person_details', function(BluePrint $table){
             $table->dropForeign('person_details_person_id_foreign');
-            $table->dropColum('person_id');
+            $table->dropColumn('person_id');
         });
     }
 };
