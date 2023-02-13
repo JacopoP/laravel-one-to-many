@@ -1,1 +1,7 @@
-@import '~bootstrap/scss/bootstrap'
+@import '~bootstrap/scss/bootstrap';
+
+nav {
+    display: flex;
+    padding: 20px 50px;
+    justify-content: space-between;
+}
