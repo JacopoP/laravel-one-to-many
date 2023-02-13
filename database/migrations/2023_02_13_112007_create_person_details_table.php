@@ -14,7 +14,6 @@ return new class extends Migration
     public function up()
     {
         Schema::create('person_details', function (Blueprint $table) {
-            $table->id();
             $table->string('phone', 16)->nullable();
             $table->string('address', 64);
             $table->string('avatar')->nullable();

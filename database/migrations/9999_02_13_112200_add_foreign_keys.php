@@ -13,7 +13,17 @@ return new class extends Migration
      */
     public function up()
     {
-        //
+        Schema::table('posts', function(BluePrint $table){
+            $table->foreignId('person_id')
+            ->constrained();
+        });
+
+        Schema::table('person_details', function(BluePrint $table){
+            $table->primary('person_id');
+
+            $table->foreignId('person_id')
+            ->constrained();
+        });
     }
 
     /**
@@ -23,6 +33,14 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('posts', function(BluePrint $table){
+            $table->dropForeign('posts_person_id_foreign');
+            $table->dropColum('person_id');
+        });
+
+        Schema::table('person_details', function(BluePrint $table){
+            $table->dropForeign('person_details_person_id_foreign');
+            $table->dropColum('person_id');
+        });
     }
 };
