@@ -9,6 +9,8 @@
 </head>
 <body>
     @include('components.header')
-    @yield('content')
+    <main class="px-5">
+        @yield('content')
+    </main>
 </body>
 </html>
