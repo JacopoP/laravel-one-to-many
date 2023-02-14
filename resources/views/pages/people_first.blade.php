@@ -4,19 +4,13 @@
     @foreach ($people as $person)
         <h2>{{$person->name}}</h2>
         <div>{{$person->mail}}</div>
-        @foreach($pd as $details)
-            @if ($details->person_id == $person->id)
-                <div>Telephone: {{$details->phone}} <br> Address: {{$details->address}}</div>
-            @endif
-        @endforeach
+        <div>Telephone: {{$person->personDetail->phone}} <br> Address: {{$person->personDetail->address}}</div>
         <br>
-        <h3>Posts:</h3>
-        @foreach($posts as $post)
-            @if ($person->id == $post->person_id)
-                <h3>{{$post->title}}</h3>
-                <h4>Post number {{$post->id}}</h4>
-                <p>{{$post->description}}</p>
-            @endif
+        <h3>Posts: {{$person->posts->count()}}</h3>
+        @foreach($person->posts as $post)
+            <h3>{{$post->title}}</h3>
+            <h4>Post number {{$post->id}}</h4>
+            <p>{{$post->description}}</p>
         @endforeach
         <hr>
     @endforeach
